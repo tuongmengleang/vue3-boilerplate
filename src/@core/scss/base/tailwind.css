@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+img[lazy='loading'] {
+    @apply w-full h-screen animate-pulse bg-gray-200 dark:bg-gray-700;
+}
+
+/* Typography */
+/*h1,*/
+/*h2,*/
+/*h3,*/
+/*h4,*/
+/*h5,*/
+/*h6,*/
+/*span,*/
+/*p,*/
+/*strong {*/
+/*    @apply text-gray-900 dark:text-gray-100;*/
+/*}*/
+
+.title {
+    @apply text-gray-800 dark:text-gray-200 font-semibold;
+}
+
+.subtitle {
+    @apply text-gray-600 dark:text-gray-400;
+}
