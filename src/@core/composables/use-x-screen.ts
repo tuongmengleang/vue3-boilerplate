@@ -70,6 +70,8 @@ export const useXScreen = () => {
 }
 
 export const isMobile = () => {
-    const keywords = ref(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)
+    const keywords = ref(
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+    )
     return keywords.value.test(navigator.userAgent)
 }

@@ -8,7 +8,7 @@ const AnimatedCounter: Directive = {
             duration: 0.5,
             snap: 'innerHTML',
             ease: 'power1.inOut',
-            paused: true,
+            paused: true
         })
     },
     mounted (el) {
@@ -23,7 +23,7 @@ const AnimatedCounter: Directive = {
             el._counterAnimation.vars.innerHTML = binding.value
             el._counterAnimation.play()
         }
-    },
+    }
 }
 
 export default AnimatedCounter

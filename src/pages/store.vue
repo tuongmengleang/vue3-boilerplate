@@ -51,7 +51,11 @@ const counterStore = useCounterStore()
             id="form"
             class="pt-5"
         >
-            <span class="text-gray-700 dark:text-gray-300"> Full Name: <strong>{{ counterStore.first_name + ' ' + counterStore.last_name }}</strong></span>
+            <span class="text-gray-700 dark:text-gray-300">
+                Full Name:
+                <strong>{{
+                    counterStore.first_name + ' ' + counterStore.last_name
+                }}</strong></span>
             <form class="flex flex-col md:flex-row items-center gap-4 pt-3">
                 <div class="w-full md:w-1/4">
                     <label

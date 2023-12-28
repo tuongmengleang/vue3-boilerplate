@@ -7,20 +7,11 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    BaseAvatar: (typeof import('./src/@core/components/BaseAvatar.vue'))['default']
-    BasePlanSwitch: (typeof import('./src/@core/components/BasePlanSwitch.vue'))['default']
-    BaseSwitchMode: (typeof import('./src/@core/components/BaseSwitchMode.vue'))['default']
-    BaseTextArora: (typeof import('./src/@core/components/BaseTextArora.vue'))['default']
-    BaseTextAurora: (typeof import('./src/@core/components/BaseTextAurora.vue'))['default']
-    BaseTextRoller: (typeof import('./src/@core/components/BaseTextRoller.vue'))['default']
-    PlanSwitch: (typeof import('./src/@core/components/PlanSwitch.vue'))['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     XBurgerMenu: typeof import('./src/@core/components/XBurgerMenu.vue')['default']
     XButton: typeof import('./src/@core/components/XButton.vue')['default']
-    XDrawer: (typeof import('./src/@core/components/XDrawer.vue'))['default']
     XDrawerBuilder: typeof import('./src/@core/components/XDrawerBuilder.vue')['default']
     XSwitchMode: typeof import('./src/@core/components/XSwitchMode.vue')['default']
-    XWelcome: typeof import('./src/@core/components/XWelcome.vue')['default']
   }
 }

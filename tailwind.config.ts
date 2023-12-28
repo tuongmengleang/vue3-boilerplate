@@ -47,7 +47,7 @@ const MyTheme = {
 
 module.exports = {
     darkMode: 'class',
-    purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+    purge: [ './index.html', './src/**/*.{vue,js,ts,jsx,tsx}' ],
     content: [
         './components/**/*.{vue,js,ts}',
         './layouts/**/*.vue',
@@ -75,7 +75,7 @@ module.exports = {
                 dark: '#121212'
             },
             fontFamily: {
-                sans: ['Poppins', ...defaultTheme.fontFamily.sans]
+                sans: [ 'Poppins', ...defaultTheme.fontFamily.sans ]
             }
         }
     }

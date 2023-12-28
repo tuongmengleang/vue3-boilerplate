@@ -3,11 +3,8 @@
 import { vOnClickOutside } from '@vueuse/components'
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 
 /* STATES */
-const { md } = useBreakpoints(breakpointsTailwind)
-
 /* PROPS */
 const props = withDefaults(
     defineProps<{

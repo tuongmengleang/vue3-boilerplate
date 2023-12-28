@@ -9,11 +9,11 @@ export default defineConfig({
     plugins: [
         vue(),
         AutoImport({
-            imports: ['vue', 'vue-router', '@vueuse/core', 'vue-i18n', 'pinia'],
+            imports: [ 'vue', 'vue-router', '@vueuse/core', 'vue-i18n', 'pinia' ],
             vueTemplate: true
         }),
         Components({
-            dirs: ['src/@core/components', 'src/@core/composables/**'],
+            dirs: [ 'src/@core/components', 'src/@core/composables/**' ],
             dts: true
         })
     ],

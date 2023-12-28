@@ -1,18 +1,18 @@
 @mixin glassMorphism($bg-color: #e5e7eb, $blur: 10px, $opacity: 0.8) {
     background: $bg-color;
     box-shadow:
-            0 4px 6px rgba(50, 50, 93, 0.11),
-            0 1px 3px rgba(0, 0, 0, 0.08);
+        0 4px 6px rgba(50, 50, 93, 0.11),
+        0 1px 3px rgba(0, 0, 0, 0.08);
     backdrop-filter: blur($blur);
     opacity: $opacity;
 }
 
 @mixin truncated-text($max-width: 8em, $line-limit: 1) {
-  max-width: $max-width;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  display: block;
-  display: -webkit-box;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: $line-limit;
+    max-width: $max-width;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    display: block;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $line-limit;
 }

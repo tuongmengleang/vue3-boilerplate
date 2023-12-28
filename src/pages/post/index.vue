@@ -7,7 +7,7 @@ import { useInfiniteScroll, useSessionStorage } from '@vueuse/core'
 import { ROUTE_NAMES } from '@/router/name.enum'
 // import { IMovie } from '@/types/IMovie'
 
-const movies = useSessionStorage('movies', [])
+const movies: any = useSessionStorage('movies', [])
 const page = useSessionStorage('movie_page', 1)
 const loading = ref<boolean>(false)
 

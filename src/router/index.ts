@@ -6,7 +6,7 @@ const router = createRouter({
     routes
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _, next) => {
     // See further down below for how we setup this data
     let title = import.meta.env.VITE_APP_NAME
     if (to.meta.title) {

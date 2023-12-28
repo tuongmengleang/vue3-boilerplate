@@ -153,7 +153,7 @@ onFetchRelated(Number(route.params?.id))
                         >
                             <RelatedMovieCard
                                 :title="item.title"
-                                :vote="item.vote_average.toFixed(2)"
+                                :vote="Number(item.vote_average.toFixed(2))"
                                 :thumbnail="item.poster_path"
                                 class="cursor-grabbing"
                             />

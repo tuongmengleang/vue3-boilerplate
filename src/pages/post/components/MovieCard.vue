@@ -12,7 +12,7 @@ const props = defineProps<{
 }>()
 
 /* STATES */
-const url: string = computed(
+const url = computed(
     () => `${import.meta.env.VITE_FILE_URL}/original/${props.poster}`
 )
 </script>
@@ -22,9 +22,12 @@ const url: string = computed(
         v-if="!loading"
         class="w-full relative"
     >
-        <div class="w-full max-h-[280px] rounded-xl overflow-hidden cursor-pointer">
+        <div
+            class="w-full max-h-[280px] rounded-xl overflow-hidden cursor-pointer"
+        >
             <img
                 v-lazy="url"
+                src=""
                 class="w-full max-h-full object-cover object-center"
                 :alt="title"
             >

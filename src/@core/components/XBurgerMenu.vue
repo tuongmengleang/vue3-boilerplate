@@ -7,7 +7,7 @@ const props = defineProps<{
 }>()
 
 /* EMIT */
-const $emit = defineEmits(['onToggle'])
+const $emit = defineEmits([ 'onToggle' ])
 
 /* METHODS */
 const onClick = (): void => {

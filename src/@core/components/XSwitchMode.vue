@@ -1,8 +1,18 @@
 <template>
-    <input id="toggle-mode" v-model="isDark" type="checkbox" />
+    <input
+        id="toggle-mode"
+        v-model="isDark"
+        type="checkbox"
+    >
     <label for="toggle-mode">
-        <XIcon class="sun text-2xl" icon="material-symbols:sunny-rounded" />
-        <XIcon class="moon text-2xl" icon="ri:moon-clear-line" />
+        <XIcon
+            class="sun text-2xl"
+            icon="material-symbols:sunny-rounded"
+        />
+        <XIcon
+            class="moon text-2xl"
+            icon="ri:moon-clear-line"
+        />
     </label>
 </template>
 
@@ -25,8 +35,8 @@ label {
     background: #ebebeb;
     border-radius: 200px;
     box-shadow:
-        inset 0px 5px 15px rgba(0, 0, 0, 0.4),
-        inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+        inset 0 5px 15px rgba(0, 0, 0, 0.4),
+        inset 0 -5px 15px rgba(255, 255, 255, 0.4);
     cursor: pointer;
     transition: 0.3s;
     &:after {
