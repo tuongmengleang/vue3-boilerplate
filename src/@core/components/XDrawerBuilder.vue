@@ -98,6 +98,7 @@ const onClickOutsideHandler = (): void => {
         ref="drawer"
         class="w-full h-screen transform top-0 left-0 w-64 bg-white dark:bg-gray-900 fixed overflow-auto ease-in-out transition-all duration-300 z-30 p-4"
         :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
+        :style="{ maxWidth: maxWidth, transitionDuration: `${speed}ms` }"
     >
         <slot />
     </aside>
