@@ -15,7 +15,9 @@ onUnmounted(() => snowflakes.destroy())
 </script>
 
 <template>
-    <div class="grid">
+    <div
+        class="grid"
+    >
         <svg
             class="grid-svg"
             xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +75,7 @@ onUnmounted(() => snowflakes.destroy())
                 </template>
                 Vue 3
             </XButton>
-            <XButton href="https://vuejs.org/">
+            <XButton href="https://github.com/tuongmengleang/vue3-boilerplate">
                 <template #prepend>
                     <Icon
                         icon="uil:github-alt"
