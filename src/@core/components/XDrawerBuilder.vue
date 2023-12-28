@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* IMPORTS */
-import { vOnClickOutside } from '@vueuse/components'
+import { onClickOutside } from '@vueuse/core'
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -16,6 +16,7 @@ const props = withDefaults(
 )
 
 const route = useRoute()
+const drawer = ref<HTMLElement | null>(null)
 const isVisible = ref<boolean>(false)
 const $emit = defineEmits([ 'close' ])
 
@@ -41,6 +42,8 @@ watch(
     }
 )
 
+onClickOutside(drawer, () => onClickOutsideHandler())
+
 const toggleBackgroundScrolling = (enable: boolean): void => {
     // Access the body element in the setup function
     const bodyElement = document.body
@@ -65,8 +68,8 @@ const onClickOutsideHandler = (): void => {
             :style="{ transitionDuration: `${speed}ms` }"
         />
         <div
-            v-on-click-outside="onClickOutsideHandler"
-            class="aside__content"
+            ref="drawer"
+            :class="['aside__content']"
             :style="{ maxWidth: maxWidth, transitionDuration: `${speed}ms` }"
         >
             <slot />
@@ -78,6 +81,7 @@ const onClickOutsideHandler = (): void => {
 @import '@/@core/scss/base/_mixins.scss';
 
 .aside {
+    @apply hidden;
     &__overlay {
         @apply fixed top-0 right-0 bottom-0 left-0 w-full h-screen select-none;
         z-index: 100;
@@ -89,25 +93,26 @@ const onClickOutsideHandler = (): void => {
     &__content {
         @include glassMorphism(#f0f4f8);
         @apply fixed
-      top-0
-      right-0
-      bottom-0
-      w-full
-      h-screen
-      p-4
-      bg-white
-      dark:bg-gray-900
-      overflow-auto
-      border-l
-      border-gray-100
-      dark:border-gray-700
-      dark:shadow-gray-600
-      overflow-y-auto;
+        w-full
+        top-0
+        right-0
+        bottom-0
+        h-screen
+        p-4
+        bg-white
+        dark:bg-gray-900
+        overflow-auto
+        border-l
+        border-gray-100
+        dark:border-gray-700
+        dark:shadow-gray-600
+        overflow-y-auto;
         z-index: 200;
         transition-property: transform;
         transform: translateX(100%);
     }
     &.open {
+        @apply block;
         .aside__overlay {
             opacity: 0.7;
         }

@@ -2,7 +2,6 @@
 /* IMPORTS */
 import { onMounted, onUnmounted } from 'vue'
 import Snowflakes from 'magic-snowflakes'
-import XButton from '@core/components/XButton.vue'
 import { Icon } from '@iconify/vue'
 
 /* STATES */
@@ -54,12 +53,14 @@ onUnmounted(() => snowflakes.destroy())
         </svg>
         <div class="blur" />
     </div>
-    <div class="title">
+    <div
+        class="title text-[4rem] leading-[4rem] md:text-[6rem] md:leading-[6rem] lg:text-[10rem] lg:leading-[10rem]"
+    >
         <p>Boilerplate</p>
         <p>Awesome</p>
         <p>Powerful</p>
 
-        <div class="flex items-center self-end gap-4 pt-5">
+        <div class="flex flex-col md:flex-row items-center self-end gap-4 pt-5">
             <XButton
                 color="secondary"
                 href="https://vuejs.org/"
@@ -99,8 +100,8 @@ $primary: hsl(155, 100%, 65%);
 }
 
 .grid-svg {
-    height: 80%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     position: relative;
     z-index: 1;
 }
@@ -123,16 +124,13 @@ $primary: hsl(155, 100%, 65%);
     transform: translate(-50%, -50%);
     justify-content: center;
     align-self: center;
-    z-index: 1000;
+    z-index: 1;
 }
 
 .title > p {
     margin: 0;
-    line-height: 10rem;
     width: auto;
-    font-size: 10rem;
     font-weight: 700;
-    letter-spacing: -0.8rem;
 }
 
 .title > p:nth-child(1) {

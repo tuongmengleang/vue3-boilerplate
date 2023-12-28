@@ -6,11 +6,11 @@
                 class="navbar__logo"
             >
                 <XIcon
-                    class="text-xl"
-                    icon="logos:vue"
+                    class="text-xl text-teal-600"
+                    icon="mingcute:vue-fill"
                 />
                 <h1 class="title">
-                    Vue 3 Boilerplate
+                    3 Boilerplate
                 </h1>
             </RouterLink>
             <NavbarMenu :items="menus" />
