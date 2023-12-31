@@ -2,6 +2,7 @@
 /* IMPORTS */
 import { ref, computed } from 'vue'
 import { onClickOutside } from '@vueuse/core'
+import { useI18n } from 'vue-i18n'
 const { locale } = useI18n({ useScope: 'global' })
 import type { I18nLanguage } from '@/layouts/types'
 
@@ -30,6 +31,7 @@ onClickOutside(target, () => (isOpen.value = false))
 <template>
     <div class="language-switcher">
         <button
+            v-if="activeI18n"
             type="button"
             class="language-switcher__btn"
             :class="{ active: isOpen }"
