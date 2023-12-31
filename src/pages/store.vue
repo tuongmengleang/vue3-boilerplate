@@ -16,7 +16,7 @@ const counterStore = useCounterStore()
                 Counter:
                 <strong v-text="counterStore.counter" />
             </span>
-            <div class="flex items-center gap-2 pt-4">
+            <div class="flex flex-col md:flex-row gap-2 pt-4">
                 <button
                     type="button"
                     class="x-btn"

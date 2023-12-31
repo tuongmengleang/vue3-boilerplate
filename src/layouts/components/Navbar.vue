@@ -12,6 +12,10 @@
                 <h1 class="title">
                     3 Boilerplate
                 </h1>
+                <div
+                    id="flag"
+                    ref="flag"
+                />
             </RouterLink>
             <NavbarMenu :items="menus" />
             <div class="navbar__action">
@@ -27,11 +31,14 @@
                     />
                 </a>
             </div>
-            <XBurgerMenu
-                v-if="!md"
-                :is-x="isDrawer"
-                @on-toggle="isDrawer = !isDrawer"
-            />
+            <div class="flex items-center gap-5">
+                <I18n />
+                <XBurgerMenu
+                    v-if="!md"
+                    :is-x="isDrawer"
+                    @on-toggle="isDrawer = !isDrawer"
+                />
+            </div>
             <XDrawerBuilder
                 v-if="!md"
                 :is-open="isDrawer"
@@ -55,7 +62,8 @@
 /* IMPORTS */
 import { ref, onMounted, onUnmounted } from 'vue'
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
-import NavbarMenu from './NavbarMenu.vue'
+import NavbarMenu from '@/layouts/components/NavbarMenu.vue'
+import I18n from '@/layouts/components/I18n.vue'
 import { ROUTE_NAMES } from '../../router/name.enum'
 
 /* STATES */
@@ -63,6 +71,7 @@ const lastPosition = ref<number>(0)
 const limitPosition = ref<number>(500)
 const scrolled = ref<boolean>(false)
 const isDrawer = ref<boolean>(false)
+const flag = ref<HTMLElement | null>(null)
 const { md } = useBreakpoints(breakpointsTailwind)
 
 const menus = ref<{ routeName: string; title: string }[]>([
@@ -88,8 +97,20 @@ const onCloseDrawer = (): void => {
     isDrawer.value = false
 }
 
+const createElementOfFlag = (): void => {
+    if (flag.value)
+        for (let i = 0; i < flag.value.offsetWidth; i++) {
+            const flag_img = document.createElement('div')
+            flag_img.className = 'flag-img'
+            flag_img.style.backgroundPosition = -i + 'px'
+            flag_img.style.animationDelay = i * 10 + 'ms'
+            flag.value.append(flag_img)
+        }
+}
+
 onMounted(() => {
     window.addEventListener('scroll', onHandleScroll)
+    createElementOfFlag()
 })
 
 onUnmounted(() => {
@@ -102,7 +123,7 @@ onUnmounted(() => {
 @import '@/@core/scss/base/_mixins.scss';
 
 .navbar {
-    @apply sticky top-0 w-full py-4 border-b border-b-gray-200 dark:border-b-gray-800 bg-white dark:bg-gray-900;
+    @apply sticky top-0 w-full py-3 border-b border-b-gray-200 dark:border-b-gray-800 bg-white dark:bg-gray-900;
     will-change: transform;
     transition: transform 200ms linear;
     z-index: 2;
@@ -113,7 +134,7 @@ onUnmounted(() => {
     }
 
     &__logo {
-        @apply flex items-center gap-2;
+        @apply relative flex items-center gap-2;
         .title {
             @apply text-base font-medium text-gray-900 dark:text-gray-100;
         }
@@ -136,6 +157,28 @@ onUnmounted(() => {
 
     &__action {
         @apply hidden md:flex flex items-center gap-3;
+    }
+}
+</style>
+
+<style lang="scss">
+#flag {
+    @apply absolute -top-3 -right-7 w-[30px] h-[20px];
+
+    .flag-img {
+        @apply relative inline-block w-[1px] h-full;
+        background-image: url('@/assets/images/cambodia-flag.png');
+        background-size: 30px 100%;
+        animation: wave 2s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes wave {
+    0% {
+        top: 5%;
+    }
+    100% {
+        top: -5%;
     }
 }
 </style>

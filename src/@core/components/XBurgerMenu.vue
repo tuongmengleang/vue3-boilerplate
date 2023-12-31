@@ -17,6 +17,7 @@ const onClick = (): void => {
 
 <template>
     <button
+        v-if="false"
         id="burger"
         :class="{ active: isX }"
         type="button"
@@ -24,9 +25,51 @@ const onClick = (): void => {
     >
         <span />
     </button>
+    <div
+        id="burger-wrapper"
+        :class="{ active: isX }"
+        @click.prevent="onClick"
+    >
+        <span class="line half start" />
+        <span class="line" />
+        <span class="line half end" />
+    </div>
 </template>
 
 <style scoped lang="scss">
+#burger-wrapper {
+    @apply w-[30px] h-[30px] flex flex-col justify-between cursor-pointer transition-all duration-300 ease-out;
+
+    .line {
+        @apply bg-green-500 dark:bg-white rounded w-full h-[5px];
+
+        &.half {
+            @apply w-1/2;
+        }
+        &.start {
+            transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+            transform-origin: right;
+        }
+        &.end {
+            align-self: flex-end;
+            transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+            transform-origin: left;
+        }
+    }
+
+    &.active {
+        //@apply -rotate-45;
+        transform: rotate(-45deg);
+
+        .line.start {
+            transform: rotate(-90deg) translateX(2.5px);
+        }
+        .line.end {
+            transform: rotate(-90deg) translateX(-2.5px);
+        }
+    }
+}
+
 #burger {
     @apply relative ml-auto;
 

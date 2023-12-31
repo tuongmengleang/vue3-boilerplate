@@ -61,11 +61,13 @@ onUnmounted(() => snowflakes.destroy())
         <p>Boilerplate</p>
         <p>Awesome</p>
         <p>Powerful</p>
+        <p>{{ $t('Pages') }}</p>
 
-        <div class="flex flex-col md:flex-row items-center self-end gap-4 pt-5">
+        <div class="flex items-center self-end gap-4 pt-10 md:pt-5">
             <XButton
                 color="secondary"
                 href="https://vuejs.org/"
+                snow
             >
                 <template #prepend>
                     <Icon
@@ -75,7 +77,10 @@ onUnmounted(() => snowflakes.destroy())
                 </template>
                 Vue 3
             </XButton>
-            <XButton href="https://github.com/tuongmengleang/vue3-boilerplate">
+            <XButton
+                href="https://github.com/tuongmengleang/vue3-boilerplate"
+                snow
+            >
                 <template #prepend>
                     <Icon
                         icon="uil:github-alt"

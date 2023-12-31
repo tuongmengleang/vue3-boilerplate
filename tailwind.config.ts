@@ -75,7 +75,7 @@ module.exports = {
                 dark: '#121212'
             },
             fontFamily: {
-                sans: [ 'Poppins', ...defaultTheme.fontFamily.sans ]
+                sans: [ 'Poppins', 'Dangrek', ...defaultTheme.fontFamily.sans ]
             }
         }
     }
