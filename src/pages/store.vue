@@ -9,11 +9,11 @@ const counterStore = useCounterStore()
 <template>
     <div class="container">
         <h1 class="py-10 text-4xl title">
-            Store Testing
+            {{ $t('store_page.store_testing') }}
         </h1>
         <section id="counter">
             <span class="text-gray-700 dark:text-gray-300">
-                Counter:
+                {{ $t('store_page.counter') }}:
                 <strong v-text="counterStore.counter" />
             </span>
             <div class="flex flex-col md:flex-row gap-2 pt-4">
@@ -22,28 +22,28 @@ const counterStore = useCounterStore()
                     class="x-btn"
                     @click="counterStore.onIncrement()"
                 >
-                    Increment
+                    {{ $t('store_page.increment') }}
                 </button>
                 <button
                     type="button"
                     class="x-btn"
                     @click="counterStore.onIncrement2x()"
                 >
-                    Increment2x
+                    {{ $t('store_page.increment') }}2x
                 </button>
                 <button
                     type="button"
                     class="x-btn"
                     @click="counterStore.onDecrement()"
                 >
-                    Decrement
+                    {{ $t('store_page.decrement') }}
                 </button>
                 <button
                     type="button"
                     class="x-btn"
                     @click="counterStore.counter = 0"
                 >
-                    Reset
+                    {{ $t('store_page.reset') }}
                 </button>
             </div>
         </section>
@@ -52,7 +52,7 @@ const counterStore = useCounterStore()
             class="pt-5"
         >
             <span class="text-gray-700 dark:text-gray-300">
-                Full Name:
+                {{ $t('store_page.full_name') }}:
                 <strong>{{
                     counterStore.first_name + ' ' + counterStore.last_name
                 }}</strong></span>
@@ -62,7 +62,7 @@ const counterStore = useCounterStore()
                         for="first_name"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                        First name
+                        {{ $t('store_page.first_name') }}:
                     </label>
                     <input
                         id="first_name"
@@ -78,7 +78,7 @@ const counterStore = useCounterStore()
                         for="first_name"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                        Last name
+                        {{ $t('store_page.last_name') }}:
                     </label>
                     <input
                         id="last_name"

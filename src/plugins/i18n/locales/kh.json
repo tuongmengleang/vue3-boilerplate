@@ -1,0 +1,26 @@
+{
+    "boilerplate": "Boilerplate",
+    "awesome": "Awesome",
+    "powerful": "Powerful",
+    "blank": "ទទេ",
+    "post": "បង្ហោះ",
+    "store": "ឃ្លាំងផ្ទុក",
+    "document": "ឯកសារ",
+    "blank_page": {
+        "title": "ទំព័រទទេ"
+    },
+    "store_page": {
+        "store_testing": "ការធ្វើតេស្តឃ្លាំងផ្ទុក",
+        "counter": "បញ្ជរ",
+        "increment": "បង្កើន",
+        "decrement": "បន្ថយ",
+        "reset": "កំណត់ឡើងវិញ",
+        "full_name": "ឈ្មោះពេញ",
+        "first_name": "នាមខ្លួន",
+        "last_name": "នាមត្រកូល"
+    },
+    "document_page": {
+        "title": "ទំព័រឯកសារ",
+        "coming_soon": "មកដល់ឆាប់ៗនេះ"
+    }
+}

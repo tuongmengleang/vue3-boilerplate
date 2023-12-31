@@ -58,12 +58,11 @@ onUnmounted(() => snowflakes.destroy())
     <div
         class="title text-[4rem] leading-[4rem] md:text-[6rem] md:leading-[6rem] lg:text-[10rem] lg:leading-[10rem]"
     >
-        <p>Boilerplate</p>
-        <p>Awesome</p>
-        <p>Powerful</p>
-        <p>{{ $t('Pages') }}</p>
+        <p>{{ $t('boilerplate') }}</p>
+        <p>{{ $t('awesome') }}</p>
+        <p>{{ $t('powerful') }}</p>
 
-        <div class="flex items-center self-end gap-4 pt-10 md:pt-5">
+        <div class="flex items-center self-end gap-4 pt-10 md:pt-10">
             <XButton
                 color="secondary"
                 href="https://vuejs.org/"

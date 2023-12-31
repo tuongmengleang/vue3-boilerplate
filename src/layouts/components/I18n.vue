@@ -12,8 +12,6 @@ const isOpen = ref<boolean>(false)
 const languages = computed<I18nLanguage[]>(() => [
     { icon: 'emojione:flag-for-cambodia', label: 'Khmer', i18nLang: 'kh' },
     { icon: 'circle-flags:uk', label: 'English', i18nLang: 'en' },
-    { icon: 'emojione:flag-for-france', label: 'Français', i18nLang: 'fr' },
-    { icon: 'emojione:flag-for-china', label: '中国', i18nLang: 'ch' }
 ])
 
 const activeI18n = computed(() =>

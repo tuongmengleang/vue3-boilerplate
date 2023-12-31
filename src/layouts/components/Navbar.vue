@@ -1,70 +1,11 @@
-<template>
-    <nav :class="[scrolled ? 'hide' : '', 'navbar']">
-        <div class="container flex items-center justify-between">
-            <RouterLink
-                to="/"
-                class="navbar__logo"
-            >
-                <XIcon
-                    class="text-xl text-teal-600"
-                    icon="mingcute:vue-fill"
-                />
-                <h1 class="title">
-                    3 Boilerplate
-                </h1>
-                <div
-                    id="flag"
-                    ref="flag"
-                />
-            </RouterLink>
-            <NavbarMenu :items="menus" />
-            <div class="navbar__action">
-                <XSwitchMode />
-                <a
-                    href="https://github.com/tuongmengleang"
-                    target="_blank"
-                    class="text-gray-500 hover:text-gray-600"
-                >
-                    <XIcon
-                        class="text-xl"
-                        icon="tabler:brand-github-copilot"
-                    />
-                </a>
-            </div>
-            <div class="flex items-center gap-5">
-                <I18n />
-                <XBurgerMenu
-                    v-if="!md"
-                    :is-x="isDrawer"
-                    @on-toggle="isDrawer = !isDrawer"
-                />
-            </div>
-            <XDrawerBuilder
-                v-if="!md"
-                :is-open="isDrawer"
-                :speed="500"
-                max-width="300px"
-                @close="onCloseDrawer"
-            >
-                <div>
-                    <NavbarMenu
-                        :items="menus"
-                        mode="horizontal"
-                    />
-                    <XSwitchMode />
-                </div>
-            </XDrawerBuilder>
-        </div>
-    </nav>
-</template>
-
 <script setup lang="ts">
 /* IMPORTS */
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import NavbarMenu from '@/layouts/components/NavbarMenu.vue'
 import I18n from '@/layouts/components/I18n.vue'
 import { ROUTE_NAMES } from '../../router/name.enum'
+import { useI18n } from 'vue-i18n'
 
 /* STATES */
 const lastPosition = ref<number>(0)
@@ -73,13 +14,20 @@ const scrolled = ref<boolean>(false)
 const isDrawer = ref<boolean>(false)
 const flag = ref<HTMLElement | null>(null)
 const { md } = useBreakpoints(breakpointsTailwind)
+const { t: $t } = useI18n()
 
-const menus = ref<{ routeName: string; title: string }[]>([
-    { routeName: ROUTE_NAMES.BLANK, title: 'Blank' },
-    { routeName: ROUTE_NAMES.POST, title: 'Post' },
-    { routeName: ROUTE_NAMES.STORE, title: 'Store' },
-    { routeName: ROUTE_NAMES.DOCUMENT, title: 'Document' }
+const menus = computed<{ routeName: string; title: string }[]>(() => [
+    { routeName: ROUTE_NAMES.BLANK, title: $t('blank') },
+    { routeName: ROUTE_NAMES.POST, title: $t('post') },
+    { routeName: ROUTE_NAMES.STORE, title: $t('store') },
+    { routeName: ROUTE_NAMES.DOCUMENT, title: $t('document') }
 ])
+// const menus = [
+//     { routeName: ROUTE_NAMES.BLANK, title: $t('blank') },
+//     { routeName: ROUTE_NAMES.POST, title: $t('post') },
+//     { routeName: ROUTE_NAMES.STORE, title: $t('store') },
+//     { routeName: ROUTE_NAMES.DOCUMENT, title: $t('document') }
+// ]
 /* METHODS */
 const onHandleScroll = (): void => {
     if (
@@ -117,6 +65,66 @@ onUnmounted(() => {
     window.removeEventListener('scroll', onHandleScroll)
 })
 </script>
+
+<template>
+    <nav :class="[scrolled ? 'hide' : '', 'navbar']">
+        <div class="container flex items-center justify-between">
+            <RouterLink
+                to="/"
+                class="navbar__logo"
+            >
+                <XIcon
+                    class="text-xl text-teal-600"
+                    icon="mingcute:vue-fill"
+                />
+                <h1 class="title">
+                    3 Boilerplate
+                </h1>
+                <div
+                    id="flag"
+                    ref="flag"
+                />
+            </RouterLink>
+            <NavbarMenu :items="menus" />
+            <div class="navbar__action">
+                <I18n />
+                <template v-if="md">
+                    <XSwitchMode />
+                    <a
+                        href="https://github.com/tuongmengleang"
+                        target="_blank"
+                        class="text-gray-500 hover:text-gray-600"
+                    >
+                        <XIcon
+                            class="text-xl"
+                            icon="tabler:brand-github-copilot"
+                        />
+                    </a>
+                </template>
+                <XBurgerMenu
+                    v-if="!md"
+                    :is-x="isDrawer"
+                    @on-toggle="isDrawer = !isDrawer"
+                />
+            </div>
+            <XDrawerBuilder
+                v-if="!md"
+                :is-open="isDrawer"
+                :speed="500"
+                max-width="300px"
+                @close="onCloseDrawer"
+            >
+                <div class="pt-4">
+                    <NavbarMenu
+                        :items="menus"
+                        mode="horizontal"
+                    />
+                    <XSwitchMode />
+                </div>
+            </XDrawerBuilder>
+        </div>
+    </nav>
+</template>
 
 <style scoped lang="scss">
 @import '@/@core/scss/base/_variables.scss';
@@ -156,7 +164,7 @@ onUnmounted(() => {
     }
 
     &__action {
-        @apply hidden md:flex flex items-center gap-3;
+        @apply flex items-center gap-3;
     }
 }
 </style>
