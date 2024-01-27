@@ -22,6 +22,7 @@ const menus = computed<{ routeName: string; title: string }[]>(() => [
     { routeName: ROUTE_NAMES.STORE, title: $t('store') },
     { routeName: ROUTE_NAMES.DOCUMENT, title: $t('document') }
 ])
+const eventName = computed(() => import.meta.env.VITE_EVENT_NAME)
 // const menus = [
 //     { routeName: ROUTE_NAMES.BLANK, title: $t('blank') },
 //     { routeName: ROUTE_NAMES.POST, title: $t('post') },
@@ -75,6 +76,7 @@ onUnmounted(() => {
             >
                 <XIcon
                     class="text-xl text-teal-600"
+                    :class="{ 'text-red-600': eventName === 'CNY' }"
                     icon="mingcute:vue-fill"
                 />
                 <h1 class="title">
@@ -84,6 +86,16 @@ onUnmounted(() => {
                     id="flag"
                     ref="flag"
                 />
+                <div
+                    v-if="false"
+                    class="absolute top-5 -left-2.5"
+                >
+                    <img
+                        src="@/assets/images/events/tassel.gif"
+                        alt=""
+                        class="w-10"
+                    >
+                </div>
             </RouterLink>
             <NavbarMenu :items="menus" />
             <div class="navbar__action">
@@ -122,6 +134,15 @@ onUnmounted(() => {
                     <XSwitchMode />
                 </div>
             </XDrawerBuilder>
+        </div>
+        <div class="absolute top-[63px] left-0 flex items-center z-50">
+            <img
+                v-for="n in 16"
+                :key="n"
+                src="@/assets/images/events/lantern.png"
+                alt="Lantern Chinese"
+                class="w-32"
+            >
         </div>
     </nav>
 </template>
@@ -164,7 +185,7 @@ onUnmounted(() => {
     }
 
     &__action {
-        @apply flex items-center gap-3;
+        @apply relative flex items-center gap-3;
     }
 }
 </style>

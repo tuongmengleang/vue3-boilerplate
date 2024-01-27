@@ -64,7 +64,7 @@ onUnmounted(() => snowflakes.destroy())
 
         <div class="flex items-center self-end gap-4 pt-10 md:pt-10">
             <XButton
-                color="secondary"
+                color="danger"
                 href="https://vuejs.org/"
                 :snow="eventName === 'XMAS'"
             >
@@ -109,6 +109,8 @@ onUnmounted(() => snowflakes.destroy())
 
 <style scoped lang="scss">
 $primary: hsl(155, 100%, 65%);
+$danger: hsl(0, 100%, 50%);
+
 .grid {
     position: absolute;
     width: 100%;
@@ -130,7 +132,7 @@ $primary: hsl(155, 100%, 65%);
 .blur {
     height: 12rem;
     width: 12rem;
-    background-color: $primary;
+    background-color: $danger;
     filter: blur(100px);
     border-radius: 100px;
     z-index: 0;
@@ -159,7 +161,7 @@ $primary: hsl(155, 100%, 65%);
 }
 
 .title > p:nth-child(2) {
-    color: $primary;
+    color: $danger;
     align-self: flex-end;
 }
 

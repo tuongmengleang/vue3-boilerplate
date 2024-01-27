@@ -34,7 +34,9 @@ const styles = reactive<{ [key: string]: string }>({
     primary:
         'bg-indigo-600 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500',
     secondary:
-        'bg-teal-600 ring-teal-300 ring-offset-teal-200 hover:ring-offset-teal-500'
+        'bg-teal-600 ring-teal-300 ring-offset-teal-200 hover:ring-offset-teal-500',
+    danger:
+        'bg-red-600 ring-red-300 ring-offset-red-200 hover:ring-offset-red-500'
 })
 
 const selectedStyle = computed(() =>
