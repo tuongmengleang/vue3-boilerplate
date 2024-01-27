@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* IMPORTS */
-import { onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
 import Snowflakes from 'magic-snowflakes'
 import { Icon } from '@iconify/vue'
 
@@ -9,15 +9,15 @@ const snowflakes = new Snowflakes({
     color: '#c7c7c7'
 })
 
-onMounted(() => snowflakes.start())
+const eventName = computed(() => import.meta.env.VITE_EVENT_NAME)
+
+onMounted(() => (eventName.value === 'XMAS' ? snowflakes.start() : snowflakes.destroy()))
 
 onUnmounted(() => snowflakes.destroy())
 </script>
 
 <template>
-    <div
-        class="grid"
-    >
+    <div class="grid">
         <svg
             class="grid-svg"
             xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +56,7 @@ onUnmounted(() => snowflakes.destroy())
         <div class="blur" />
     </div>
     <div
-        class="title text-[4rem] leading-[4rem] md:text-[6rem] md:leading-[6rem] lg:text-[10rem] lg:leading-[10rem]"
+        class="relative title text-[4rem] leading-[4rem] md:text-[6rem] md:leading-[6rem] lg:text-[10rem] lg:leading-[10rem]"
     >
         <p>{{ $t('boilerplate') }}</p>
         <p>{{ $t('awesome') }}</p>
@@ -66,7 +66,7 @@ onUnmounted(() => snowflakes.destroy())
             <XButton
                 color="secondary"
                 href="https://vuejs.org/"
-                snow
+                :snow="eventName === 'XMAS'"
             >
                 <template #prepend>
                     <Icon
@@ -78,7 +78,7 @@ onUnmounted(() => snowflakes.destroy())
             </XButton>
             <XButton
                 href="https://github.com/tuongmengleang/vue3-boilerplate"
-                snow
+                :snow="eventName === 'XMAS'"
             >
                 <template #prepend>
                     <Icon
@@ -88,6 +88,21 @@ onUnmounted(() => snowflakes.destroy())
                 </template>
                 Github
             </XButton>
+        </div>
+
+        <div class="absolute -top-6 md:-top-8 lg:-top-8 lg:left-0">
+            <img
+                src="@/assets/images/events/dragon.png"
+                alt="Dragon"
+                class="w-14 md:w-20 lg:w-24"
+            >
+        </div>
+        <div class="absolute top-[0.84em] left-[2.825em] md:top-[0.75em] md:left-[2.77em] lg:top-[0.85em] lg:left-[2.84em]">
+            <img
+                src="@/assets/images/events/dragon-vertical.png"
+                alt="Dragon"
+                class="w-3 md:w-6 lg:w-7"
+            >
         </div>
     </div>
 </template>

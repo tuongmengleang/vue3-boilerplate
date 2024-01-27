@@ -1,18 +1,31 @@
 # Vue 3 Boilerplate Awesome Powerful
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+![npm](https://img.shields.io/npm/v/%40nuxt-awesome%2Ftheme)
+![NPM](https://img.shields.io/npm/l/%40nuxt-awesome%2Ftheme)
+![npm](https://img.shields.io/npm/dm/%40nuxt-awesome/theme)
 
-## Recommended IDE Setup
+Vue 3 starter template with a lot of useful features, integrated with TailwindCSS 3. Easy use and implemented in Vue Layer, you can extend this template with zero config.  
 
--   [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- 📖&nbsp; [Demo](https://vue3-boilerplates.vercel.app/)
 
-## Type Support For `.vue` Imports in TS
+## Preview
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+<table align="center">
+  <tr>
+    <td align="center" width="100%" colspan="2">
+      <img src="@/assets/images/preview.png?raw=true" alt="Preview" title="Preview">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="75%">
+      <img src="assets/images/preview_desktop.gif?raw=true" alt="Preview" title="Desktop Preview">
+    </td>
+    <td align="center" width="25%">
+      <img src="assets/images/preview_mobile.gif?raw=true" alt="Preview" title="Mobile Preview">
+    </td>
+  </tr>
+</table>
+<p align="center">
+  <br>
+  <a href="https://vue3-boilerplates.vercel.app/" target="_blank">Live Demo</a>
+</p>

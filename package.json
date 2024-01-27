@@ -5,6 +5,7 @@
         "dev": "vite --host",
         "build": "vue-tsc && vite build",
         "preview": "vite preview",
+        "watch": "vite build && vite preview",
         "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
         "format": "prettier .  --write",
         "sb": "storybook dev -p 6006",
