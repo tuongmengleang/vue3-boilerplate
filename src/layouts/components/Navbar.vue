@@ -12,7 +12,6 @@ const lastPosition = ref<number>(0)
 const limitPosition = ref<number>(500)
 const scrolled = ref<boolean>(false)
 const isDrawer = ref<boolean>(false)
-const flag = ref<HTMLElement | null>(null)
 const { md } = useBreakpoints(breakpointsTailwind)
 const { t: $t } = useI18n()
 
@@ -46,20 +45,8 @@ const onCloseDrawer = (): void => {
     isDrawer.value = false
 }
 
-const createElementOfFlag = (): void => {
-    if (flag.value)
-        for (let i = 0; i < flag.value.offsetWidth; i++) {
-            const flag_img = document.createElement('div')
-            flag_img.className = 'flag-img'
-            flag_img.style.backgroundPosition = -i + 'px'
-            flag_img.style.animationDelay = i * 10 + 'ms'
-            flag.value.append(flag_img)
-        }
-}
-
 onMounted(() => {
     window.addEventListener('scroll', onHandleScroll)
-    createElementOfFlag()
 })
 
 onUnmounted(() => {
@@ -75,17 +62,12 @@ onUnmounted(() => {
                 class="navbar__logo"
             >
                 <XIcon
-                    class="text-xl text-teal-600"
-                    :class="{ 'text-red-600': eventName === 'CNY' }"
+                    :class="[ 'text-xl', eventName === 'CNY' ? 'text-red-600' : 'text-teal-600' ]"
                     icon="mingcute:vue-fill"
                 />
                 <h1 class="title">
                     3 Boilerplate
                 </h1>
-                <div
-                    id="flag"
-                    ref="flag"
-                />
                 <div
                     v-if="false"
                     class="absolute top-5 -left-2.5"
@@ -135,7 +117,10 @@ onUnmounted(() => {
                 </div>
             </XDrawerBuilder>
         </div>
-        <div class="absolute top-[63px] left-0 flex items-center z-50">
+        <div
+            v-if="false"
+            class="absolute top-[63px] left-0 flex items-center z-50"
+        >
             <img
                 v-for="n in 16"
                 :key="n"
@@ -191,23 +176,5 @@ onUnmounted(() => {
 </style>
 
 <style lang="scss">
-#flag {
-    @apply absolute -top-3 -right-7 w-[30px] h-[20px];
 
-    .flag-img {
-        @apply relative inline-block w-[1px] h-full;
-        background-image: url('@/assets/images/cambodia-flag.png');
-        background-size: 30px 100%;
-        animation: wave 2s ease-in-out infinite alternate;
-    }
-}
-
-@keyframes wave {
-    0% {
-        top: 5%;
-    }
-    100% {
-        top: -5%;
-    }
-}
 </style>
