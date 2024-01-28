@@ -118,11 +118,11 @@ onUnmounted(() => {
             </XDrawerBuilder>
         </div>
         <div
-            v-if="false"
-            class="absolute top-[63px] left-0 flex items-center z-50"
+            v-if="eventName === 'CNY'"
+            class="absolute top-[63px] left-0 w-full flex items-center justify-between z-10 overflow-hidden"
         >
             <img
-                v-for="n in 16"
+                v-for="n in 10"
                 :key="n"
                 src="@/assets/images/events/lantern.png"
                 alt="Lantern Chinese"
